@@ -1,0 +1,21 @@
+/* para pruebas */
+/* para pruebas */
+.estiloGeneral {
+  width: 2.5rem;
+  border: 1px solid #D69C79;
+}
+
+.botonCantiCarrito {
+  border: 1px solid #D69C79;
+  color: #D69C79;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.mrigth {
+  margin-top: 0rem;
+  margin-right: 12rem;
+  font-weight: bold;
+}
+
+/* para pruebas */

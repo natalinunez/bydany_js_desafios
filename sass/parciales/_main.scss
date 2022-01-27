@@ -1,0 +1,30 @@
+@import './vars';
+@import './mixins.scss';
+/*////////////////////////////////////////////////////////////////Pagina Principal///////////////////////////////////////////////////////*/
+ /* inicio carrusel */
+  /* Esto es para controlar alto de la imagen del carrusel */
+  /* carousel-item es una clase propia de bootstrap*/
+  .carouselItem{
+    max-height: 80vh;   
+  }
+  
+  .carouselItem__titulo{        
+    //      estiloTexto($fontSize, $fontWeight, $marginBottom, $colorTipografia)
+    @include estiloTexto(2.3rem, bold, 1rem, $colorTipograCarrousel);
+  }
+
+  .carouselItem__parrafo{      
+    //      estiloTexto($fontSize, $fontWeight, $marginBottom, $colorTipografia) 
+    @include estiloTexto(1.7rem, none, 3rem, $colorTipograCarrousel);
+  }
+/* fin carrusel */
+
+  .carbody__titu {    
+    font-size: 1.7rem;    
+  }
+
+  .card__efecto:hover{  
+    transition: all 0.5s ease;
+    /*crece el card*/
+    transform: scale(1.1,1.1);
+  }

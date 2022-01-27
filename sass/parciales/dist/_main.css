@@ -1,0 +1,34 @@
+/* para pruebas */
+/* para pruebas */
+/*////////////////////////////////////////////////////////////////Pagina Principal///////////////////////////////////////////////////////*/
+/* inicio carrusel */
+/* Esto es para controlar alto de la imagen del carrusel */
+/* carousel-item es una clase propia de bootstrap*/
+.carouselItem {
+  max-height: 80vh;
+}
+
+.carouselItem__titulo {
+  font-size: 2.3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #af6a3f;
+}
+
+.carouselItem__parrafo {
+  font-size: 1.7rem;
+  font-weight: none;
+  margin-bottom: 3rem;
+  color: #af6a3f;
+}
+
+/* fin carrusel */
+.carbody__titu {
+  font-size: 1.7rem;
+}
+
+.card__efecto:hover {
+  transition: all 0.5s ease;
+  /*crece el card*/
+  transform: scale(1.1, 1.1);
+}
