@@ -28,3 +28,22 @@
     /*crece el card*/
     transform: scale(1.1,1.1);
   }
+
+  //animaciones con jquery
+  .contenedorTipoCate{
+    position: relative;
+    /* display: inline-block; */
+    text-align: center;    
+  }
+  
+  .centrado{
+    // display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #af6a3f;
+    font-size: 2rem;
+    // font-weight: bold;
+    line-height: 2.5rem;
+  }
