@@ -16,42 +16,30 @@ function fcategoriaPulseras() {
 } //desafio complementario: animaciones con jquery
 
 
-var contenedorMensaje_1 = $("#contenedorMensaje_1");
-var eventoMensaje_1 = $("#eventoMensaje_1");
-contenedorMensaje_1.mouseenter(function () {
-  eventoMensaje_1.fadeIn("slow"); // eventoMensaje.show();
-
+$("#contenedorMensaje_1").mouseenter(function () {
+  $("#eventoMensaje_1").fadeIn("slow").slideDown("fast");
   $(".imagenCate_1").css("opacity", "0.6");
 });
-contenedorMensaje_1.mouseleave(function () {
-  eventoMensaje_1.fadeOut("slow"); // eventoMensaje_1.hide();
-
+$("#contenedorMensaje_1").mouseleave(function () {
+  $("#eventoMensaje_1").hide();
   $(".imagenCate_1").css("opacity", "1");
 });
-var contenedorMensaje_2 = $("#contenedorMensaje_2");
-var eventoMensaje_2 = $("#eventoMensaje_2");
-contenedorMensaje_2.mouseenter(function () {
-  eventoMensaje_2.fadeIn("slow"); // eventoMensaje.show();
-
+$("#contenedorMensaje_2").mouseenter(function () {
+  $("#eventoMensaje_2").fadeIn("slow").slideDown("fast");
   $(".imagenCate_2").css("opacity", "0.6");
 });
-contenedorMensaje_2.mouseleave(function () {
-  eventoMensaje_2.fadeOut("slow"); // eventoMensaje_2.hide();
-
+$("#contenedorMensaje_2").mouseleave(function () {
+  $("#eventoMensaje_2").hide();
   $(".imagenCate_2").css("opacity", "1");
 });
-var contenedorMensaje_3 = $("#contenedorMensaje_3");
-var eventoMensaje_3 = $("#eventoMensaje_3");
-contenedorMensaje_3.mouseenter(function () {
-  eventoMensaje_3.fadeIn("slow"); // eventoMensaje_3.show();
-
+$("#contenedorMensaje_3").mouseenter(function () {
+  $("#eventoMensaje_3").fadeIn("slow").slideDown("fast");
   $(".imagenCate_3").css("opacity", "0.6");
 });
-contenedorMensaje_3.mouseleave(function () {
-  eventoMensaje_3.fadeOut("slow"); // eventoMensaje_3.hide();
-
+$("#contenedorMensaje_3").mouseleave(function () {
+  $("#eventoMensaje_3").hide();
   $(".imagenCate_3").css("opacity", "1");
 });
-eventoMensaje_1.hide();
-eventoMensaje_2.hide();
-eventoMensaje_3.hide();
+$("#eventoMensaje_1").hide();
+$("#eventoMensaje_2").hide();
+$("#eventoMensaje_3").hide();
