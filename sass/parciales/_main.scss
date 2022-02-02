@@ -5,18 +5,43 @@
   /* Esto es para controlar alto de la imagen del carrusel */
   /* carousel-item es una clase propia de bootstrap*/
   .carouselItem{
-    max-height: 80vh;   
+        // max-height: 80vh;   
+        height: 80vh;   
   }
   
   .carouselItem__titulo{        
     //      estiloTexto($fontSize, $fontWeight, $marginBottom, $colorTipografia)
-    @include estiloTexto(2.3rem, bold, 1rem, $colorTipograCarrousel);
+    @include estiloTexto(2.7rem, bold, 1rem, $colorTipograCarrousel);
   }
+
+  .carouselItem__titulo_1{        
+    //      estiloTexto($fontSize, $fontWeight, $marginBottom, $colorTipografia)
+    // @include estiloTexto(2.7rem, bold, 4rem, $colorTipograCarrousel);
+    // @include estiloTexto(2.7rem, bold, 1rem, $colorTipograCarrousel);
+    color: #D69C79;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    background-color: #f1e6df;
+    padding-top: 0.5rem;
+  }  
 
   .carouselItem__parrafo{      
     //      estiloTexto($fontSize, $fontWeight, $marginBottom, $colorTipografia) 
-    @include estiloTexto(1.7rem, none, 3rem, $colorTipograCarrousel);
+    @include estiloTexto(2.2rem, none, 0.5rem, $colorTipograCarrousel);
   }
+
+  .colorTipoCarrusel_1 {
+    // color: #200b01;
+    color: #868080;
+  }
+
+  .colorTipoCarrusel_2 {
+    color: #f1e7e7;
+    // color: #200b01;
+  }  
+
 /* fin carrusel */
 
   .carbody__titu {    

@@ -139,21 +139,39 @@ h1 {
 /* Esto es para controlar alto de la imagen del carrusel */
 /* carousel-item es una clase propia de bootstrap*/
 .carouselItem {
-  max-height: 80vh;
+  height: 80vh;
 }
 
 .carouselItem__titulo {
-  font-size: 2.3rem;
+  font-size: 2.7rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #af6a3f;
 }
 
+.carouselItem__titulo_1 {
+  color: #D69C79;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  background-color: #f1e6df;
+  padding-top: 0.5rem;
+}
+
 .carouselItem__parrafo {
-  font-size: 1.7rem;
+  font-size: 2.2rem;
   font-weight: none;
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
   color: #af6a3f;
+}
+
+.colorTipoCarrusel_1 {
+  color: #868080;
+}
+
+.colorTipoCarrusel_2 {
+  color: #f1e7e7;
 }
 
 /* fin carrusel */
