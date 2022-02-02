@@ -28,7 +28,7 @@ function fcategoriaPulseras() {
 ; //Ini agregado por desafio: usar ajax y jquery
 
 function colocarNombreCategoria(idCategoria) {
-  $.get(urlCategorias, function (response, status) {
+  $.getJSON(urlCategorias, function (response, status) {
     if (status === "success") {
       var datos = response;
       console.log("datos=" + datos); //no se puede visualizar datos correctamente
