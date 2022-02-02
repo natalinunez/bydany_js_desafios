@@ -1,6 +1,6 @@
+const urlCategorias = '../data/categorias.json';
 //este bloque de codigo es para establecer en el localStorage el valor de la categoria (1,2,3)
 //que se seleccione en la pagina principal
-
 function fCategoriaAretes(){    
     localStorage.setItem('lscategoria',1);    
 };
@@ -13,35 +13,56 @@ function fcategoriaPulseras(){
   localStorage.setItem('lscategoria',3);
 };
 
-//Ini agregado por desafio 8: agregando eventos
+//Ini agregado por desafio: usar ajax y jquery
 function colocarNombreCategoria(idCategoria){
-    let idCategoriaEtiqueta = document.getElementById("idCategoriaEtiqueta");   
+    $.get(urlCategorias, function(response, status) {  
+      if(status === "success"){
+        let datos = response;    
+        console.log("datos=" + datos);//no se puede visualizar datos correctamente
+        console.log(datos);
+  
+        for (const dato of datos) {
+          if (+dato.id === +idCategoria){          
+            $("#idFontsizeColorWeight").append(dato.name)
+            $("#idCategoriaEtiqueta").append(`<h3 class="estiloNombreCategoria">  ${dato.description}
+            </h3>`);
+          }
+        }  
+      }
+    
+    })    
+  }
+  //Fin agregado por desafio: usar ajax y jquery
 
-    let nombreCategoria = document.createElement("h3");
-    nombreCategoria.setAttribute("class","estiloNombreCategoria");
+// //Ini agregado por desafio 8: agregando eventos
+// function colocarNombreCategoria(idCategoria){
+//     let idCategoriaEtiqueta = document.getElementById("idCategoriaEtiqueta");   
 
-    let idFontsizeColorWeight = document.getElementById("idFontsizeColorWeight");
+//     let nombreCategoria = document.createElement("h3");
+//     nombreCategoria.setAttribute("class","estiloNombreCategoria");
 
-    switch(idCategoria) {
-        case 1:                            
-            nombreCategoria.innerText = "Catálogo de Aretes";     
-            idFontsizeColorWeight.innerText="Aretes";                   
-            break;
-        case 2:
-            nombreCategoria.innerText = "Catálogo de Collares";            
-            idFontsizeColorWeight.innerText="Collares";
-            break;
-        case 3:
-            nombreCategoria.innerText = "Catálogo de Pulseras";            
-            idFontsizeColorWeight.innerText="Pulseras";
-            break;                
-        default:                                
-            break;
-    }    
+//     let idFontsizeColorWeight = document.getElementById("idFontsizeColorWeight");
 
-    idCategoriaEtiqueta.appendChild(nombreCategoria);    
-}
-//Fin agregado por desafio 8: agregando eventos
+//     switch(idCategoria) {
+//         case 1:                            
+//             nombreCategoria.innerText = "Catálogo de Aretes";     
+//             idFontsizeColorWeight.innerText="Aretes";                   
+//             break;
+//         case 2:
+//             nombreCategoria.innerText = "Catálogo de Collares";            
+//             idFontsizeColorWeight.innerText="Collares";
+//             break;
+//         case 3:
+//             nombreCategoria.innerText = "Catálogo de Pulseras";            
+//             idFontsizeColorWeight.innerText="Pulseras";
+//             break;                
+//         default:                                
+//             break;
+//     }    
+
+//     idCategoriaEtiqueta.appendChild(nombreCategoria);    
+// }
+// //Fin agregado por desafio 8: agregando eventos
 
 let productosCategoria, idCategoria, productos = [];
 const contenedorProducto = document.getElementById('contenedorProducto');

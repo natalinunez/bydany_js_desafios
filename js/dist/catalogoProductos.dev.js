@@ -6,8 +6,9 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-//este bloque de codigo es para establecer en el localStorage el valor de la categoria (1,2,3)
+var urlCategorias = '../data/categorias.json'; //este bloque de codigo es para establecer en el localStorage el valor de la categoria (1,2,3)
 //que se seleccione en la pagina principal
+
 function fCategoriaAretes() {
   localStorage.setItem('lscategoria', 1);
 }
@@ -24,36 +25,70 @@ function fcategoriaPulseras() {
   localStorage.setItem('lscategoria', 3);
 }
 
-; //Ini agregado por desafio 8: agregando eventos
+; //Ini agregado por desafio: usar ajax y jquery
 
 function colocarNombreCategoria(idCategoria) {
-  var idCategoriaEtiqueta = document.getElementById("idCategoriaEtiqueta");
-  var nombreCategoria = document.createElement("h3");
-  nombreCategoria.setAttribute("class", "estiloNombreCategoria");
-  var idFontsizeColorWeight = document.getElementById("idFontsizeColorWeight");
+  $.get(urlCategorias, function (response, status) {
+    if (status === "success") {
+      var datos = response;
+      console.log("datos=" + datos); //no se puede visualizar datos correctamente
 
-  switch (idCategoria) {
-    case 1:
-      nombreCategoria.innerText = "Catálogo de Aretes";
-      idFontsizeColorWeight.innerText = "Aretes";
-      break;
+      console.log(datos);
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
 
-    case 2:
-      nombreCategoria.innerText = "Catálogo de Collares";
-      idFontsizeColorWeight.innerText = "Collares";
-      break;
+      try {
+        for (var _iterator = datos[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var dato = _step.value;
 
-    case 3:
-      nombreCategoria.innerText = "Catálogo de Pulseras";
-      idFontsizeColorWeight.innerText = "Pulseras";
-      break;
-
-    default:
-      break;
-  }
-
-  idCategoriaEtiqueta.appendChild(nombreCategoria);
-} //Fin agregado por desafio 8: agregando eventos
+          if (+dato.id === +idCategoria) {
+            $("#idFontsizeColorWeight").append(dato.name);
+            $("#idCategoriaEtiqueta").append("<h3 class=\"estiloNombreCategoria\">  ".concat(dato.description, "\n            </h3>"));
+          }
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+            _iterator["return"]();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }
+  });
+} //Fin agregado por desafio: usar ajax y jquery
+// //Ini agregado por desafio 8: agregando eventos
+// function colocarNombreCategoria(idCategoria){
+//     let idCategoriaEtiqueta = document.getElementById("idCategoriaEtiqueta");   
+//     let nombreCategoria = document.createElement("h3");
+//     nombreCategoria.setAttribute("class","estiloNombreCategoria");
+//     let idFontsizeColorWeight = document.getElementById("idFontsizeColorWeight");
+//     switch(idCategoria) {
+//         case 1:                            
+//             nombreCategoria.innerText = "Catálogo de Aretes";     
+//             idFontsizeColorWeight.innerText="Aretes";                   
+//             break;
+//         case 2:
+//             nombreCategoria.innerText = "Catálogo de Collares";            
+//             idFontsizeColorWeight.innerText="Collares";
+//             break;
+//         case 3:
+//             nombreCategoria.innerText = "Catálogo de Pulseras";            
+//             idFontsizeColorWeight.innerText="Pulseras";
+//             break;                
+//         default:                                
+//             break;
+//     }    
+//     idCategoriaEtiqueta.appendChild(nombreCategoria);    
+// }
+// //Fin agregado por desafio 8: agregando eventos
 
 
 var productosCategoria,
@@ -186,8 +221,7 @@ function obtenerStorage(clave) {
 
 function agregarAlCarrito(event) {
   console.log(event.target.id);
-  var idProductoElegido = event.target.id; // Matcheamos el id ingresado con el producto correspondiente a ese id
-  // carrito = obtenerStorage('carrito');
+  var idProductoElegido = event.target.id; // Matcheamos el id ingresado con el producto correspondiente a ese id    
 
   if (productos.some(function (producto) {
     return producto.id === parseInt(idProductoElegido);
