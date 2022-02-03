@@ -1,3 +1,16 @@
+function fCategoriaAretes() {
+  // let valor = categoriaAretes.innerText.toLowerCase()
+  localStorage.setItem("lscategoria", 1);
+}
+
+function fcategoriaCollares() {
+  localStorage.setItem("lscategoria", 2);
+}
+
+function fcategoriaPulseras() {
+  localStorage.setItem("lscategoria", 3);
+}
+
 //forma corta par el método ready
 $(()=>{
   let carrito = [];

@@ -1,7 +1,6 @@
 //este bloque de codigo es para establecer en el localStorage el valor de la categoria (1,2,3)
 //que se seleccione en la pagina principal
-function fCategoriaAretes() {
-  // let valor = categoriaAretes.innerText.toLowerCase()
+function fCategoriaAretes() {  
   localStorage.setItem("lscategoria", 1);
 }
 
@@ -61,7 +60,6 @@ $("#contenedorMensaje_3")
       // .hide()            
     $(".imagenCate_3").css("opacity", "1");
 });
-
 
 $("#eventoMensaje_1").hide();
 $("#eventoMensaje_2").hide();

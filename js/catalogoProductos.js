@@ -10,7 +10,7 @@ function fcategoriaCollares(){
 };
 
 function fcategoriaPulseras(){
-  localStorage.setItem('lscategoria',3);
+    localStorage.setItem('lscategoria',3);
 };
 
 //Ini agregado por desafio: usar ajax y jquery
@@ -33,36 +33,6 @@ function colocarNombreCategoria(idCategoria){
     })    
   }
   //Fin agregado por desafio: usar ajax y jquery
-
-// //Ini agregado por desafio 8: agregando eventos
-// function colocarNombreCategoria(idCategoria){
-//     let idCategoriaEtiqueta = document.getElementById("idCategoriaEtiqueta");   
-
-//     let nombreCategoria = document.createElement("h3");
-//     nombreCategoria.setAttribute("class","estiloNombreCategoria");
-
-//     let idFontsizeColorWeight = document.getElementById("idFontsizeColorWeight");
-
-//     switch(idCategoria) {
-//         case 1:                            
-//             nombreCategoria.innerText = "Catálogo de Aretes";     
-//             idFontsizeColorWeight.innerText="Aretes";                   
-//             break;
-//         case 2:
-//             nombreCategoria.innerText = "Catálogo de Collares";            
-//             idFontsizeColorWeight.innerText="Collares";
-//             break;
-//         case 3:
-//             nombreCategoria.innerText = "Catálogo de Pulseras";            
-//             idFontsizeColorWeight.innerText="Pulseras";
-//             break;                
-//         default:                                
-//             break;
-//     }    
-
-//     idCategoriaEtiqueta.appendChild(nombreCategoria);    
-// }
-// //Fin agregado por desafio 8: agregando eventos
 
 let productosCategoria, idCategoria, productos = [];
 const contenedorProducto = document.getElementById('contenedorProducto');
@@ -222,6 +192,7 @@ productoMetodos.todosProductos();
 
 //obtenemos la categoria que elegimos en la pagina principal
 idCategoria = +localStorage.getItem('lscategoria');
+console.log(`idCategoria=${idCategoria}`);
 
 //filtramos los productos por categoria
 productoMetodos.filtrarProductosCategoria(idCategoria);
