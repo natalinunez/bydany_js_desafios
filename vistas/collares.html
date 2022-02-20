@@ -40,12 +40,10 @@
   <body>
     <!-- Ini barra de navegacion -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid claseBorderVerde">
+      <div class="container claseBorderVerde">
         <a class="navbar-brand claseBorderRojo flex-column justify-content-start"
           href="#">
           <img src="../images/logoByDany.png" alt="logo app" class="header__logo"/>
-          <!-- Esto es para SEO -->
-          <h1>by dany</h1>
         </a>
 
         <button class="navbar-toggler estilo__Hambur claseBorderRojo"
@@ -72,9 +70,11 @@
           </ul>
         </div>
 
-        <a class="navbar-brand claseBorderRojo" href="#">
+        <button class="navbar-brand claseBorderRojo botonLogo" id="idLogoCarrito">
           <img src="../images/shopping-bag.svg" alt="logo compras" class="header__compras"/>
-        </a>
+          <div class="styleBubbleCart bordeRojo" id="idStyleBubbleCart">0</div>
+        </button>        
+
       </div>
     </nav>
     <!-- Fin barra de navegacion -->

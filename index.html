@@ -43,13 +43,10 @@
   <body>
     <!-- Ini barra de navegacion -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid claseBorderVerde">
-        <a class="navbar-brand claseBorderRojo flex-column justify-content-start"
-          href="#">
+      <div class="container claseBorderVerde">
+        <p class="navbar-brand claseBorderRojo flex-column justify-content-start">
           <img src="./images/logoByDany.png" alt="logo app" class="header__logo"/>
-          <!-- Esto es para SEO -->
-          <h1>by dany</h1>
-        </a>
+        </p>
 
         <button class="navbar-toggler estilo__Hambur claseBorderRojo"
           type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -75,9 +72,11 @@
           </ul>
         </div>
 
-        <a class="navbar-brand claseBorderRojo" href="#">
+        <button class="navbar-brand botonLogo" id="idLogoCarrito">
           <img src="./images/shopping-bag.svg" alt="logo compras" class="header__compras"/>
-        </a>
+          <div class="styleBubbleCart " id="idStyleBubbleCart">0</div>
+        </button>
+
       </div>
     </nav>
     <!-- Fin barra de navegacion -->
@@ -272,7 +271,7 @@
       <div class="row mt-1">
         <div class="col-md-12 d-flex justify-content-center">
           <small class="footer__copyrigth">
-            ByDany 2021 © Todos los derechos reservados
+            ByDany 2022 © Todos los derechos reservados
           </small>
         </div>
       </div>

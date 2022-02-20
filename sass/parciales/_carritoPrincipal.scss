@@ -11,29 +11,17 @@
   color: $colorTipograGeneral;
   font-size: 1rem;
   font-weight: bold;
-  // height: 2rem;
-  // width: 2rem;
-  // text-align: center;
 }
 
-// .botonEliminar {
-//   border: 1px solid $colorTipograGeneral;
-//   color: $colorTipograGeneral;
-//   width: 2rem;
-//   background-color: #e76666;
-// }
-
-// .botonEliminar:hover{
-//   color: $colorTipograGeneral;
-//   background-color: #e76666;
-// }
-
-.mrigth {
-  margin-top: 0rem;
-  margin-right: 12rem;
-  font-weight: bold;
+//estilo para mostrar compra exitosa
+.btnCart {      
+  // styleButton ($borderThickness, $borderstyle, $bordeColor, $fontColor, $backgroundColor)
+  @include styleButton(1px, solid, $colorTipograGeneral, $colorTipograGeneral, $colorFondo);      
 }
 
+.btnCart:hover {  
+  @include styleButton(1px, solid, $colorTipograGeneral, $colorTipograGeneral, $colorFondo);      
+}
 
 /* para pruebas */
 // .colorAzul {
@@ -46,4 +34,8 @@
 
 // .colorAmarrillo {
 //     border: 2px solid #f1c70c;
+// }
+
+// .colorVerde {
+//   border: 2px solid #1c9e10;
 // }

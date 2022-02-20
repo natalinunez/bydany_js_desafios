@@ -26,3 +26,10 @@
     align-items: $alignItems;
     gap: $gap;    
 }
+
+@mixin styleButton ($borderThickness, $borderstyle, $bordeColor, $fontColor, $backgroundColor){
+    border: $borderThickness $borderstyle $bordeColor;
+    color: $fontColor;
+    background-color:$backgroundColor;     
+}
+

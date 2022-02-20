@@ -40,12 +40,10 @@
 <body>
     <!-- Ini barra de navegacion -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid claseBorderVerde">
+      <div class="container claseBorderVerde">
         <a class="navbar-brand claseBorderRojo flex-column justify-content-start"
           href="#">
           <img src="../images/logoByDany.png" alt="logo app" class="header__logo"/>
-          <!-- Esto es para SEO -->
-          <h1>by dany</h1>
         </a>
 
         <button class="navbar-toggler estilo__Hambur claseBorderRojo"
@@ -72,16 +70,17 @@
           </ul>
         </div>
 
-        <a class="navbar-brand claseBorderRojo" href="#">
+        <button class="navbar-brand claseBorderRojo botonLogo" id="idLogoCarrito">
           <img src="../images/shopping-bag.svg" alt="logo compras" class="header__compras"/>
-        </a>
+          <div class="styleBubbleCart bordeRojo" id="idStyleBubbleCart">0</div>
+        </button>        
+
       </div>
     </nav>
     <!-- Fin barra de navegacion -->
-    
+
     <div class="container mt-5 ">
       <h3 class="mb-5 text-center fs-4 fw-bold">Carrito de Compras</h3>
-      <!-- <table class="table table-hover"> -->
       <table class="table">
         <thead >
           <tr class="text-primary ">
@@ -99,15 +98,67 @@
     
     <br><br>
     <div class="container mb-5">
-      <div class="row text-end ">      
-        <div class="col-md-12 ">        
-          <h3 class="itemCartTotal colorRojo mrigth">Total: 0</h3>
+      <div class="row colorAmarrillo">      
+        <div class="col-md-9 colorVerde">                  
         </div>
-        <!-- <div class="col d-flex justify-content-end">
-          <button class="btn btn-success">COMPRAR</button>
-        </div> -->
+        <div class="col-md-3 colorVerde ">                  
+          <h3 class="itemCartTotal colorRojo ">Total: 0</h3>
+        </div>
       </div>  
+      <div class="row mt-4 colorAmarrillo">      
+        <div class="col-md-9 colorVerde">                  
+        </div>
+        <div class="col-md-3 colorVerde d-flex justify-content-first">                  
+          <!-- button modal para comprar -->
+          <button type="button" class="btn btnCart" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="idbuttonModal">
+            Comprar
+          </button>          
+        </div>
+      </div>        
     </div>
+  
+  <!-- The Modal para carrito de compras-->
+  <div class="modal fade modalClass" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header colorAzulr">
+          <h4 class="modal-title text-center fs-4 colorRojo" id="staticBackdropLabel" >¡¡¡Compra Exitosa!!!</h4>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          Usted ha comprado los siguientes productos:
+          <table class="table mt-3" >
+            <thead >
+              <tr class="text-primary ">
+                <th scope="col">#</th>
+                <th scope="col">Productos</th>
+                <th scope="col" class="text-center">Precio ($)</th>
+                <th scope="col" class="text-center">Cantidad</th>
+                <th scope="col" class="">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody class="tbodyModal">                            
+            </tbody>
+          </table>    
+          <div class="container-fluid mb-5">
+            <div class="row colorAmarrillo">      
+              <div class="col-md-10 colorVerde">                  
+              </div>
+              <div class="col-md-2 colorVerde ">                  
+                <h3 class="itemCartTotalModal colorRojo ">Total: 0</h3>
+              </div>
+            </div>  
+          </div>            
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btnCart" id="idbuttonClose" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>    
 
     <!-- Ini footer -->
     <div class="container-fluid mt-2 fondo">
@@ -172,6 +223,7 @@
       </div>
     </div>
     <!-- Fin footer -->
+
     <!--Jquery 3.6-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>    
     <!--Bootstrap -->
@@ -180,7 +232,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>      
-
-    <script src="../js/carritoPrincipal.js"></script>
+    <script src="../js/carritoPrincipal.js"></script>    
 </body>
+
 </html>

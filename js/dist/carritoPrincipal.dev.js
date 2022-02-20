@@ -66,6 +66,7 @@ $(function () {
   function CarritoTotal() {
     var Total = 0;
     var itemCartTotal = document.querySelector('.itemCartTotal');
+    var itemCartTotalModal = document.querySelector('.itemCartTotalModal');
     carrito.forEach(function (item) {
       var precio = item.precio;
       item.precioxcantidad = item.precio * item.cantidad;
@@ -73,6 +74,8 @@ $(function () {
       console.log("Total=".concat(Total));
     });
     itemCartTotal.innerHTML = "Total $ ".concat(Total);
+    itemCartTotalModal.innerHTML = "Total $ ".concat(Total);
+    $(itemCartTotal).append;
     guardarStorage('carrito', carrito);
     renderCarrito();
   }
@@ -97,5 +100,72 @@ $(function () {
     guardarStorage('carrito', carrito);
     CarritoTotal();
     renderCarrito();
+  } //Ini logica para mostrar compra exitosa en modal
+  //cargamo el carrito en modal HTML
+
+
+  function renderCarritoModal() {
+    // console.log(`renderCarrito: ${carrito.length}`);
+    var i = 0; //limpiamos el tbody para que no se acumule lo anaterior al realizar la recarga
+
+    $(".tbodyModal").empty();
+    carrito.map(function (item) {
+      i++;
+      $(".tbodyModal").append("      \n            <tr class=\"ItemCarrito\">\n              <td scope=\"row\">".concat(i, "</td>\n              <td class=\"table__productos\">                \n                <h6 class=\"title\">").concat(item.nombre, "</h6>\n              </td>\n              <td class=\"table__price\" >\n                <p class=\"colorRojo text-center\" >").concat(item.precio, "</p>\n              </td>\n              <td class=\"colorVerde text-center\" >                                                                               \n                <span class=\"colorRojo\">").concat(item.cantidad, "</span>                \n              </td>             \n              <td class=\"precioxcantidad \">\n                <p class=\"colorAzul text-center\">").concat(item.precioxcantidad, "</p>\n              </td>\n              <td>\n            </tr>\n      "));
+    });
   }
+
+  var idbuttonModal = document.getElementById("idbuttonModal");
+  idbuttonModal.addEventListener("click", function () {
+    console.log("lenModal=".concat(carrito.length));
+
+    if (+carrito.length === 0) {
+      // alert("No existen registros en el carrito para realizar la compra");
+      console.log("lenModal_1=".concat(carrito.length)); // staticBackdrop.removeAttribute("id","")
+      // const modalClass = document.getElementsByClassName("modalClass");
+
+      var staticBackdrop = document.getElementById("staticBackdrop");
+      staticBackdrop.id = "valor";
+    } else {
+      console.log("lenModal_2=".concat(carrito.length));
+      renderCarritoModal();
+    }
+  }); //Para vaciar el carrito
+
+  var idbuttonClose = document.getElementById("idbuttonClose");
+  idbuttonClose.addEventListener("click", function () {
+    console.log("len=".concat(carrito.length)); // carrito.pop();    
+
+    carrito = [];
+    guardarStorage('carrito', carrito);
+    CarritoTotal();
+    renderCarritoModal();
+    console.log("len=".concat(carrito.length));
+    window.location.href = "../index.html";
+  }); //Fin logica para mostrar compra exitosa en modal
+
+  var cantidadProductos = obtenerStorage('carrito').length;
+  console.log("cantidadProductos = ".concat(cantidadProductos)); //Para mostrar cantidad de productos en el carrito e ir al carrito
+
+  function obtenerStorage(clave) {
+    var valor = JSON.parse(localStorage.getItem(clave));
+    console.log("obtenerStorage - paso x 1 -index ".concat(valor));
+    return valor;
+  }
+
+  var idLogoCarrito = document.getElementById("idLogoCarrito");
+  idLogoCarrito.addEventListener("click", mostrarCarrito);
+
+  function mostrarCarrito() {
+    if (obtenerStorage('carrito').length > 0) {
+      console.log("paso por carrito 1");
+      window.location.href = "../vistas/carritoPrincipal.html";
+    } else {
+      console.log("paso por carrito 2");
+      alert('No hay productos en el carrito');
+    }
+  }
+
+  var idStyleBubbleCart = document.getElementById("idStyleBubbleCart");
+  idStyleBubbleCart.innerText = obtenerStorage('carrito').length;
 });

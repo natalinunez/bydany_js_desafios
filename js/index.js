@@ -64,3 +64,54 @@ $("#contenedorMensaje_3")
 $("#eventoMensaje_1").hide();
 $("#eventoMensaje_2").hide();
 $("#eventoMensaje_3").hide();
+
+//Para mostrar cantidad de productos en el carrito e ir al carrito
+function obtenerStorage(clave) {
+    const valor = JSON.parse(localStorage.getItem(clave));
+    console.log(`obtenerStorage - paso x 1 -index ${valor}`);
+    return valor;
+}
+
+let idLogoCarrito = document.getElementById("idLogoCarrito");
+idLogoCarrito.addEventListener("click", mostrarCarrito);
+
+function mostrarCarrito () {
+  if(obtenerStorage('carrito').length > 0) {         
+      console.log("paso por carrito 1");
+      window.location.href = "../vistas/carritoPrincipal.html";
+      
+  } else {
+      console.log("paso por carrito 2");
+      alert('No hay productos en el carrito');
+  }
+}
+
+let idStyleBubbleCart = document.getElementById("idStyleBubbleCart");
+idStyleBubbleCart.innerText = obtenerStorage('carrito').length;
+
+
+//Para envío de formulario para
+let idBotonFormulario = document.getElementById("idBotonFormulario");
+
+let inputNombre = document.getElementById("inputNombre");
+let inputApellido = document.getElementById("inputApellido");
+let inputCorreo = document.getElementById("inputCorreo");
+let inputTelefono = document.getElementById("inputTelefono");
+let inputComentario = document.getElementById("inputComentario");
+
+idBotonFormulario.addEventListener("click", validarFormulario);
+
+function validarFormulario () {
+  let vInputNombre = inputNombre.value;
+  let vInputApellido = inputApellido.value;
+  let vInputCorreo = inputCorreo.value;
+  let vInputTelefono = inputTelefono.value;
+  let vInputComentario = inputComentario.value;
+    
+  if(vInputNombre.length > 0 && vInputApellido.length > 0 &&  vInputCorreo.length > 0 && vInputTelefono.length > 0 && vInputComentario.length > 0) {
+    alert("Sus datos fueron enviados exitosamente");
+  } else {    
+    alert("Falta ingresar uno de los datos")
+  }  
+}
+

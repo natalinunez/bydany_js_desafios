@@ -17,13 +17,12 @@
     transform: scale(1.05,1.05);
     color: $colorTipograFooter;
     font-weight: bold;
-  }
+}
 
 .card__body{
     font-size: $fontSizeCatalogoProducto;//1.2rem
     color: $colorTipograFooter;         
 }
-
 
 .estiloNombreCategoria {
     // @mixin tituloParrafo($fontSize, $fontWeight, $marginBottom, $colorTipografia) {

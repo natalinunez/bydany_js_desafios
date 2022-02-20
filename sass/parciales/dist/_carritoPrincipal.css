@@ -12,10 +12,16 @@
   font-weight: bold;
 }
 
-.mrigth {
-  margin-top: 0rem;
-  margin-right: 12rem;
-  font-weight: bold;
+.btnCart {
+  border: 1px solid #D69C79;
+  color: #D69C79;
+  background-color: #f1e6df;
+}
+
+.btnCart:hover {
+  border: 1px solid #D69C79;
+  color: #D69C79;
+  background-color: #f1e6df;
 }
 
 /* para pruebas */

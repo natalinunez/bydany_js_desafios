@@ -85,14 +85,9 @@ h1 {
 }
 
 .header__compras {
-  width: 6rem;
-  height: 6rem;
+  width: 2.5rem;
+  height: 2.5rem;
   color: #D69C79;
-  -webkit-animation: animaImg 5s ease 0s infinite;
-          animation: animaImg 5s ease 0s infinite;
-  /* para pruebas */
-  /* background-color: #51cd32;  
-    border: 1px solid #1e0db4; */
 }
 
 /*Animacion para logo e imagen de compras*/
@@ -132,6 +127,36 @@ h1 {
 }
 
 /* fin cabecera */
+.botonLogo {
+  position: relative;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.styleBubbleCart {
+  color: #b2b5b9;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 50%;
+  border: 1px solid #D69C79;
+  background-color: #f0edec;
+  height: 1.3rem;
+  width: 1.3rem;
+  top: 10%;
+  left: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+}
+
 /* para pruebas */
 /* para pruebas */
 /*////////////////////////////////////////////////////////////////Pagina Principal///////////////////////////////////////////////////////*/
@@ -406,10 +431,16 @@ h1 {
   font-weight: bold;
 }
 
-.mrigth {
-  margin-top: 0rem;
-  margin-right: 12rem;
-  font-weight: bold;
+.btnCart {
+  border: 1px solid #D69C79;
+  color: #D69C79;
+  background-color: #f1e6df;
+}
+
+.btnCart:hover {
+  border: 1px solid #D69C79;
+  color: #D69C79;
+  background-color: #f1e6df;
 }
 
 /* para pruebas */

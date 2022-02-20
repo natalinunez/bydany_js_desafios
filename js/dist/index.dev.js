@@ -47,4 +47,48 @@ $("#contenedorMensaje_3").mouseleave(function () {
 });
 $("#eventoMensaje_1").hide();
 $("#eventoMensaje_2").hide();
-$("#eventoMensaje_3").hide();
+$("#eventoMensaje_3").hide(); //Para mostrar cantidad de productos en el carrito e ir al carrito
+
+function obtenerStorage(clave) {
+  var valor = JSON.parse(localStorage.getItem(clave));
+  console.log("obtenerStorage - paso x 1 -index ".concat(valor));
+  return valor;
+}
+
+var idLogoCarrito = document.getElementById("idLogoCarrito");
+idLogoCarrito.addEventListener("click", mostrarCarrito);
+
+function mostrarCarrito() {
+  if (obtenerStorage('carrito').length > 0) {
+    console.log("paso por carrito 1");
+    window.location.href = "../vistas/carritoPrincipal.html";
+  } else {
+    console.log("paso por carrito 2");
+    alert('No hay productos en el carrito');
+  }
+}
+
+var idStyleBubbleCart = document.getElementById("idStyleBubbleCart");
+idStyleBubbleCart.innerText = obtenerStorage('carrito').length; //Para envío de formulario para
+
+var idBotonFormulario = document.getElementById("idBotonFormulario");
+var inputNombre = document.getElementById("inputNombre");
+var inputApellido = document.getElementById("inputApellido");
+var inputCorreo = document.getElementById("inputCorreo");
+var inputTelefono = document.getElementById("inputTelefono");
+var inputComentario = document.getElementById("inputComentario");
+idBotonFormulario.addEventListener("click", validarFormulario);
+
+function validarFormulario() {
+  var vInputNombre = inputNombre.value;
+  var vInputApellido = inputApellido.value;
+  var vInputCorreo = inputCorreo.value;
+  var vInputTelefono = inputTelefono.value;
+  var vInputComentario = inputComentario.value;
+
+  if (vInputNombre.length > 0 && vInputApellido.length > 0 && vInputCorreo.length > 0 && vInputTelefono.length > 0 && vInputComentario.length > 0) {
+    alert("Sus datos fueron enviados exitosamente");
+  } else {
+    alert("Falta ingresar uno de los datos");
+  }
+}

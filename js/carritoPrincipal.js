@@ -90,6 +90,8 @@ $(()=>{
   function CarritoTotal(){
     let Total = 0;
     const itemCartTotal = document.querySelector('.itemCartTotal');
+    const itemCartTotalModal = document.querySelector('.itemCartTotalModal');
+
     carrito.forEach((item) => {            
       const precio = item.precio;      
       item.precioxcantidad = item.precio * item.cantidad; 
@@ -98,6 +100,8 @@ $(()=>{
     })
       
     itemCartTotal.innerHTML = `Total $ ${Total}`;
+    itemCartTotalModal.innerHTML = `Total $ ${Total}`;
+    $(itemCartTotal).append
     guardarStorage('carrito', carrito);
     renderCarrito();
   }
@@ -125,4 +129,96 @@ $(()=>{
     renderCarrito();
   }
 
-})
+  //Ini logica para mostrar compra exitosa en modal
+  //cargamo el carrito en modal HTML
+  function renderCarritoModal() {
+    // console.log(`renderCarrito: ${carrito.length}`);
+    let i=0;
+
+    //limpiamos el tbody para que no se acumule lo anaterior al realizar la recarga
+    $(".tbodyModal").empty();
+
+    carrito.map(item => {
+      i++;
+      $(".tbodyModal").append(`      
+            <tr class="ItemCarrito">
+              <td scope="row">${i}</td>
+              <td class="table__productos">                
+                <h6 class="title">${item.nombre}</h6>
+              </td>
+              <td class="table__price" >
+                <p class="colorRojo text-center" >${item.precio}</p>
+              </td>
+              <td class="colorVerde text-center" >                                                                               
+                <span class="colorRojo">${item.cantidad}</span>                
+              </td>             
+              <td class="precioxcantidad ">
+                <p class="colorAzul text-center">${item.precioxcantidad}</p>
+              </td>
+              <td>
+            </tr>
+      `);           
+
+    })      
+  }
+
+  const idbuttonModal = document.getElementById("idbuttonModal");
+  idbuttonModal.addEventListener("click",() => {
+    console.log(`lenModal=${carrito.length}`);
+    if (+carrito.length === 0){
+      // alert("No existen registros en el carrito para realizar la compra");
+      console.log(`lenModal_1=${carrito.length}`);
+      // staticBackdrop.removeAttribute("id","")
+      // const modalClass = document.getElementsByClassName("modalClass");
+      const staticBackdrop = document.getElementById("staticBackdrop");
+      staticBackdrop.id="valor";
+    } else{
+      console.log(`lenModal_2=${carrito.length}`);
+      renderCarritoModal();
+    }
+    
+  })  
+
+  //Para vaciar el carrito
+  const idbuttonClose = document.getElementById("idbuttonClose");
+  idbuttonClose.addEventListener("click",() => {
+    console.log(`len=${carrito.length}`);
+    // carrito.pop();    
+    carrito = [];
+    guardarStorage('carrito', carrito);
+    CarritoTotal()
+    renderCarritoModal();
+    console.log(`len=${carrito.length}`);
+
+    window.location.href = "../index.html";    
+  })
+//Fin logica para mostrar compra exitosa en modal
+
+let cantidadProductos =obtenerStorage('carrito').length;
+console.log(`cantidadProductos = ${cantidadProductos}`);
+
+//Para mostrar cantidad de productos en el carrito e ir al carrito
+function obtenerStorage(clave) {
+  const valor = JSON.parse(localStorage.getItem(clave));
+  console.log(`obtenerStorage - paso x 1 -index ${valor}`);
+  return valor;
+}
+
+let idLogoCarrito = document.getElementById("idLogoCarrito");
+idLogoCarrito.addEventListener("click", mostrarCarrito);
+
+function mostrarCarrito () {
+if(obtenerStorage('carrito').length > 0) {         
+    console.log("paso por carrito 1");
+    window.location.href = "../vistas/carritoPrincipal.html";
+    
+} else {
+    console.log("paso por carrito 2");
+    alert('No hay productos en el carrito');
+}
+}
+
+let idStyleBubbleCart = document.getElementById("idStyleBubbleCart");
+idStyleBubbleCart.innerText = obtenerStorage('carrito').length;
+
+})  

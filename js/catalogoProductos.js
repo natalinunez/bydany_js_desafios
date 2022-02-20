@@ -59,9 +59,9 @@ class Producto {
         productos.push(new Producto(8, "Corazón calado plata", 30, "collares","../images/collares/cadena-corazon-calado-plata-1228x1536-1.jpg")); 
         productos.push(new Producto(9, "Perla cristal", 35, "collares","../images/collares/cadena-perla-cristal-1228x1536-1.jpg")); 
         productos.push(new Producto(10, "Trinity tree", 35, "collares","../images/collares/cadena-trinity-1229x1536-1.jpg")); 
-        productos.push(new Producto(11, "Mom calado", 30, "collares","../images/collares/DSCF5839-1024x859-1.jpg")); 
-        productos.push(new Producto(12, "Estrella jerusalén", 35, "collares","../images/collares/DSCF9672-1024x967-1.jpg")); 
-        productos.push(new Producto(13, "Corazón tree ", 35, "collares","../images/collares/DSCF9684-scaled-1.jpg")); 
+        // productos.push(new Producto(11, "Mom calado", 30, "collares","../images/collares/DSCF5839-1024x859-1.jpg")); 
+        // productos.push(new Producto(12, "Estrella jerusalén", 35, "collares","../images/collares/DSCF9672-1024x967-1.jpg")); 
+        // productos.push(new Producto(13, "Corazón tree ", 35, "collares","../images/collares/DSCF9684-scaled-1.jpg")); 
         // productos.push(new Producto(14, "princesa", 35, "collares","../images/collares/Formato-Post.jpg")); 
 
         productos.push(new Producto(15, "María lola", 15, "pulseras","../images/pulseras/Maria-lola-bf.jpg")); 
@@ -201,3 +201,27 @@ productoMetodos.filtrarProductosCategoria(idCategoria);
 productoMetodos.renderProducts(productosCategoria, contenedorProducto);
 
 colocarNombreCategoria(idCategoria);
+
+//Para mostrar cantidad de productos en el carrito e ir al carrito
+function obtenerStorage(clave) {
+    const valor = JSON.parse(localStorage.getItem(clave));
+    console.log(`obtenerStorage - paso x 1 -index ${valor}`);
+    return valor;
+}
+
+let idLogoCarrito = document.getElementById("idLogoCarrito");
+idLogoCarrito.addEventListener("click", mostrarCarrito);
+
+function mostrarCarrito () {
+  if(obtenerStorage('carrito').length > 0) {         
+      console.log("paso por carrito 1");
+      window.location.href = "../vistas/carritoPrincipal.html";
+      
+  } else {
+      console.log("paso por carrito 2");
+      alert('No hay productos en el carrito');
+  }
+}
+
+let idStyleBubbleCart = document.getElementById("idStyleBubbleCart");
+idStyleBubbleCart.innerText = obtenerStorage('carrito').length;
